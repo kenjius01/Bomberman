@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
+import uet.oop.bomberman.Enemy.Enemy;
 import uet.oop.bomberman.Level.LoadLevelMap;
 import uet.oop.bomberman.entities.Bomber;
 import uet.oop.bomberman.entities.Entity;
@@ -19,13 +20,13 @@ import java.util.List;
 
 public class BombermanGame extends Application {
 
-    public static final int WIDTH = 20;
-    public static final int HEIGHT = 20;
+    public static final int WIDTH = 31;
+    public static final int HEIGHT = 31;
 
     private GraphicsContext gc;
     private Canvas canvas;
     private List<Entity> entities = new ArrayList<>();
-    private List<Entity> stillObjects = new ArrayList<>();
+    private List<Enemy> enemies = new ArrayList<>();
 
 
     public static void main(String[] args) {
@@ -59,12 +60,11 @@ public class BombermanGame extends Application {
         timer.start();
         LoadLevelMap l = new LoadLevelMap();
         l.loadMap(1);
-        l.createMap(stillObjects);
+        l.createMap(entities, enemies);
 
-        Entity bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage());
-        entities.add(bomberman);
+        //Entity bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage());
+        //entities.add(bomberman);
     }
-
 
     public void update() {
         entities.forEach(Entity::update);
@@ -72,7 +72,8 @@ public class BombermanGame extends Application {
 
     public void render() {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        stillObjects.forEach(g -> g.render(gc));
+
         entities.forEach(g -> g.render(gc));
+        enemies.forEach(g -> g.render(gc));
     }
 }
