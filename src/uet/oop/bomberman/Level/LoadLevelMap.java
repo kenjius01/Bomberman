@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class LoadLevelMap {
     private char[][] map;
@@ -30,18 +31,18 @@ public class LoadLevelMap {
             FileReader fileReader = new FileReader("res\\levels\\Level" + level + ".txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String s = bufferedReader.readLine();
-            while (!s.equals("")) {
+            while (!Objects.equals(s, "")) {
                 list.add(s);
                 s = bufferedReader.readLine();
             }
-            String[] line = list.get(0).trim().split("\\s+");
-            lv = Integer.parseInt(line[0]); // level của map
-            h = Integer.parseInt(line[1]); // chieu cao của map.
-            w = Integer.parseInt(line[2]); // chiều rộng của map.
-            map = new char[h][w];
         } catch (Exception e) {
             e.printStackTrace();
         }
+        String[] line = list.get(0).trim().split("\\s+");
+        lv = Integer.parseInt(line[0]); // level của map
+        h = Integer.parseInt(line[1]); // chieu cao của map.
+        w = Integer.parseInt(line[2]); // chiều rộng của map.
+        map = new char[h][w];
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
                 map[i][j] = list.get(i + 1).charAt(j);
@@ -58,12 +59,12 @@ public class LoadLevelMap {
                 switch (c) {
                     // Thêm cỏ
                     case ' ':
-                        object = new Grass(i, j, Sprite.grass.getFxImage());
+                        object = new Grass(j, i, Sprite.grass.getFxImage());
                         entities.add(object);
                         break;
                     // thêm tường
                     case '#':
-                        object = new Wall(i, j, Sprite.wall.getFxImage());
+                        object = new Wall(j, i, Sprite.wall.getFxImage());
                         entities.add(object);
                         break;
                     // thêm brick
@@ -73,12 +74,12 @@ public class LoadLevelMap {
                         break;
                     // thêm balloom
                     case '1' :
-                        enemy = new Balloom(i, j, Sprite.balloom_left1.getFxImage());
+                        enemy = new Balloom(j, i, Sprite.balloom_left1.getFxImage());
                         enemies.add(enemy);
                         break;
                     // thêm oneal
                     case '2' :
-                        enemy = new Oneal(i, j, Sprite.oneal_left1.getFxImage());
+                        enemy = new Oneal(j, i, Sprite.oneal_left1.getFxImage());
                         enemies.add(enemy);
                         break;
                 }
