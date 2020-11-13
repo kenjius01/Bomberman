@@ -7,11 +7,11 @@ import uet.oop.bomberman.graphics.Sprite;
 public class Bomberman {
     //Tọa độ X tính từ góc trái trên trong Canvas
     protected int x;
-
     //Tọa độ Y tính từ góc trái trên trong Canvas
     protected int y;
-
     protected Image img;
+
+    protected static Integer limitBomb;
 
     public Bomberman() {}
 
