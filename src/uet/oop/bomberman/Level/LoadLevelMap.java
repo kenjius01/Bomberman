@@ -69,7 +69,7 @@ public class LoadLevelMap {
                         break;
                     // thêm brick
                     case '*': case 'b': case 'f': case 's': case 'x':
-                        object = new Brick(i, j, Sprite.brick.getFxImage());
+                        object = new Brick(j, i, Sprite.brick.getFxImage());
                         entities.add(object);
                         break;
                     // thêm balloom
