@@ -1,7 +1,10 @@
 package uet.oop.bomberman.Level;
 
-import uet.oop.bomberman.Enemy.*;
+import uet.oop.bomberman.entities.Enemy.*;
 import uet.oop.bomberman.entities.*;
+import uet.oop.bomberman.entities.Obstacle.Brick;
+import uet.oop.bomberman.entities.Obstacle.Wall;
+import uet.oop.bomberman.entities.Wallpaper.Grass;
 import uet.oop.bomberman.graphics.Sprite;
 
 import java.io.BufferedReader;
@@ -15,8 +18,6 @@ public class LoadLevelMap {
     private int lv;
     private int h;
     private int w;
-    //private List<Entity> entities = new ArrayList<>();
-    //private List<Entity> stillObjects = new ArrayList<>();
 
     public LoadLevelMap() {};
 
