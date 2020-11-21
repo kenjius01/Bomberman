@@ -1,6 +1,8 @@
 package uet.oop.bomberman.Level;
 
-import uet.oop.bomberman.entities.Enemy.*;
+import uet.oop.bomberman.entities.Character.Bomberman;
+import uet.oop.bomberman.entities.Character.Character;
+import uet.oop.bomberman.entities.Character.Enemy.*;
 import uet.oop.bomberman.entities.*;
 import uet.oop.bomberman.entities.Obstacle.Brick;
 import uet.oop.bomberman.entities.Obstacle.Wall;
@@ -11,7 +13,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class LoadLevelMap {
     private char[][] map;
@@ -32,7 +33,7 @@ public class LoadLevelMap {
             FileReader fileReader = new FileReader("res\\levels\\Level" + level + ".txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String s = bufferedReader.readLine();
-            while (!Objects.equals(s, "")) {
+            while (!s.equals("")) {
                 list.add(s);
                 s = bufferedReader.readLine();
             }
@@ -51,11 +52,11 @@ public class LoadLevelMap {
         }
 
     }
-    public void createMap(List<Entity> entities, List<Enemy> enemies) {
+    public void createMap(List<Entity> entities, List<Character> characters) {
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
                 Entity object;
-                Enemy enemy;
+                Character ch;
                 char c  = map[i][j];
                 switch (c) {
                     // Thêm cỏ
@@ -75,13 +76,23 @@ public class LoadLevelMap {
                         break;
                     // thêm balloom
                     case '1' :
-                        enemy = new Balloom(j, i, Sprite.balloom_left1.getFxImage());
-                        enemies.add(enemy);
+                        ch = new Balloom(j, i, Sprite.balloom_left1.getFxImage());
+                        entities.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        characters.add(ch);
                         break;
                     // thêm oneal
                     case '2' :
-                        enemy = new Oneal(j, i, Sprite.oneal_left1.getFxImage());
-                        enemies.add(enemy);
+                        ch = new Oneal(j, i, Sprite.oneal_left1.getFxImage());
+                        entities.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        characters.add(ch);
+                        break;
+                    case 'p' :
+                        ch = new Bomberman(j, i, Sprite.player_right.getFxImage());
+                        entities.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        characters.add(ch);
+                        break;
+                    default:
+                        entities.add(new Grass(j, i, Sprite.grass.getFxImage()));
                         break;
                 }
             }

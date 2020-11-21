@@ -24,7 +24,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Users\FOODY\Desktop\vinhdz\IntelliJ IDEA Community Edition 2020.2.1\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="C:\Program Files\JetBrains\New folder\IntelliJ IDEA Community Edition 2020.2.2\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -80,39 +80,48 @@
     <option name="LAST_COMMIT_MESSAGE" value="loadMap" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1605519589161">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="510" y="105" key="#com.intellij.ide.util.MemberChooser" timestamp="1605972775197">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="510" y="105" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1605972775197" />
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1605519589161" />
+    <state x="422" y="117" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605972263892">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="422" y="117" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605972263892" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1605500259851">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605500259851" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1605523682369">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="176" key="GridCell.Tab.0.bottom" timestamp="1605971763110">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605283784673" />
+    <state width="1323" height="176" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605971763110" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605523682369" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1605523682369">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="176" key="GridCell.Tab.0.center" timestamp="1605971763110">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605283784672" />
+    <state width="1323" height="176" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605971763110" />
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605523682369" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1605523682369">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="176" key="GridCell.Tab.0.left" timestamp="1605971763110">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605283784672" />
+    <state width="1323" height="176" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605971763110" />
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605523682369" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1605523682369">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="176" key="GridCell.Tab.0.right" timestamp="1605971763110">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605283784672" />
+    <state width="1323" height="176" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605971763110" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605523682369" />
     <state x="183" y="0" key="SettingsEditor" timestamp="1605499323942">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605105763588" />
     <state x="183" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605499323942" />
+    <state x="509" y="284" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605970692914">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="509" y="284" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1605970692914" />
     <state x="478" y="145" width="579" height="534" key="find.popup" timestamp="1605449670859">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

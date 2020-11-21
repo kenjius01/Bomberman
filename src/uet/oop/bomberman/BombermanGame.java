@@ -8,9 +8,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 import uet.oop.bomberman.entities.Character.Bomberman;
-import uet.oop.bomberman.entities.Character.BombermanController;
-import uet.oop.bomberman.entities.Enemy.Enemy;
 import uet.oop.bomberman.Level.LoadLevelMap;
+import uet.oop.bomberman.entities.Character.Character;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.graphics.Sprite;
 
@@ -19,16 +18,13 @@ import java.util.List;
 
 public class BombermanGame extends Application {
 
-    public static final int WIDTH = 31;
-    public static final int HEIGHT = 31;
-
+    public static final int WIDTH = 20;
+    public static final int HEIGHT = 15;
     private GraphicsContext gc;
     private Canvas canvas;
     private List<Entity> entities = new ArrayList<>();
-    private List<Enemy> enemies = new ArrayList<>();
-    private List<Enemy> items = new ArrayList<>();
-    private Bomberman bomberman = new Bomberman();
-    private BombermanController bombermanController = new BombermanController();
+    private List<Character> characters = new ArrayList<>();
+
 
 
     public static void main(String[] args) {
@@ -62,7 +58,8 @@ public class BombermanGame extends Application {
         timer.start();
         LoadLevelMap loadLevelMap = new LoadLevelMap();
         loadLevelMap.loadMap(1);
-        loadLevelMap.createMap(entities, enemies);
+        loadLevelMap.createMap(entities, characters );
+
 
 
     }
@@ -73,10 +70,10 @@ public class BombermanGame extends Application {
 
     public void render() {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        bomberman = new Bomberman(1, 1, Sprite.player_right.getFxImage());
-        bomberman.render(gc);
 
         entities.forEach(g -> g.render(gc));
-        enemies.forEach(g -> g.render(gc));
+        for (Character g : characters) {
+            g.render(gc);
+        }
     }
 }
