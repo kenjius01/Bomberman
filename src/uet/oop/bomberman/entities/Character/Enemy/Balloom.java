@@ -2,6 +2,7 @@ package uet.oop.bomberman.entities.Character.Enemy;
 
 import javafx.scene.image.Image;
 import uet.oop.bomberman.entities.Character.Character;
+import uet.oop.bomberman.entities.Entity;
 
 public class Balloom extends Character {
 
@@ -15,14 +16,10 @@ public class Balloom extends Character {
     }
 
     @Override
-    protected void calculateMove() {
-
+    public boolean collide(Entity e) {
+        return false;
     }
 
-    @Override
-    protected void move(double xa, double ya) {
-
-    }
 
     @Override
     public void kill() {
@@ -30,7 +27,22 @@ public class Balloom extends Character {
     }
 
     @Override
+    public void afterKill() {
+
+    }
+
+    @Override
     protected boolean canMove(double x, double y) {
         return false;
+    }
+
+    @Override
+    protected void calculateMove() {
+
+    }
+
+    @Override
+    protected void move(double xa, double ya) {
+
     }
 }

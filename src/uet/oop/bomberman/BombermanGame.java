@@ -2,10 +2,12 @@ package uet.oop.bomberman;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import uet.oop.bomberman.entities.Character.Bomberman;
 import uet.oop.bomberman.Level.LoadLevelMap;
@@ -24,6 +26,9 @@ public class BombermanGame extends Application {
     private Canvas canvas;
     private List<Entity> entities = new ArrayList<>();
     private List<Character> characters = new ArrayList<>();
+    private Bomberman bomberman;
+
+
 
 
 
@@ -50,9 +55,11 @@ public class BombermanGame extends Application {
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
-            public void handle(long l) {
+            public void handle(long now) {
+
                 render();
                 update();
+
             }
         };
         timer.start();
@@ -62,16 +69,23 @@ public class BombermanGame extends Application {
 
 
 
+
+
+
     }
 
     public void update() {
-        entities.forEach(Entity::update);
+        for (Entity entity : entities) {
+            entity.update();
+        }
     }
 
     public void render() {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
-        entities.forEach(g -> g.render(gc));
+        for (Entity entity : entities) {
+            entity.render(gc);
+        }
         for (Character g : characters) {
             g.render(gc);
         }

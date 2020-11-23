@@ -8,6 +8,8 @@ import javafx.scene.paint.Color;
 import uet.oop.bomberman.graphics.Sprite;
 
 public abstract class Entity {
+
+    protected boolean removed = false;
     //Tọa độ X tính từ góc trái trên trong Canvas
     protected int x;
 
@@ -24,8 +26,46 @@ public abstract class Entity {
         this.img = img;
     }
 
+    protected Entity() {
+    }
+
+
     public void render(GraphicsContext gc) {
         gc.drawImage(img, x, y);
     }
     public abstract void update();
+
+    public void remove() {
+        removed = true;
+    }
+
+    public boolean isRemoved() {
+        return removed;
+    }
+
+    public Image getImg() {
+        return img;
+    }
+
+    public void setImg(Image img) {
+        this.img = img;
+    }
+
+    public abstract boolean collide(Entity e);
+
+    public void setX(int x) {
+        this.x += x;
+    }
+
+    public void setY(int y) {
+        this.y += y;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getX() {
+        return x;
+    }
 }

@@ -9,7 +9,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 import uet.oop.bomberman.entities.*;
 import uet.oop.bomberman.entities.Obstacle.Brick;
-import uet.oop.bomberman.entities.Obstacle.Wall;
+import uet.oop.bomberman.entities.Wallpaper.Wall;
 import uet.oop.bomberman.entities.Wallpaper.Grass;
 import uet.oop.bomberman.graphics.Sprite;
 

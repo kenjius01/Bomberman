@@ -5,7 +5,8 @@ import uet.oop.bomberman.entities.Character.Character;
 import uet.oop.bomberman.entities.Character.Enemy.*;
 import uet.oop.bomberman.entities.*;
 import uet.oop.bomberman.entities.Obstacle.Brick;
-import uet.oop.bomberman.entities.Obstacle.Wall;
+import uet.oop.bomberman.entities.Wallpaper.Portal;
+import uet.oop.bomberman.entities.Wallpaper.Wall;
 import uet.oop.bomberman.entities.Wallpaper.Grass;
 import uet.oop.bomberman.graphics.Sprite;
 
@@ -70,9 +71,9 @@ public class LoadLevelMap {
                         entities.add(object);
                         break;
                     // thêm brick
-                    case '*': case 'b': case 'f': case 's': case 'x':
-                        object = new Brick(j, i, Sprite.brick.getFxImage());
-                        entities.add(object);
+                    case '*':
+                        entities.add(new Hiden(j, i, new Grass(j, i, Sprite.grass.getFxImage()),
+                                 new Brick(j, i, Sprite.brick.getFxImage())));
                         break;
                     // thêm balloom
                     case '1' :
@@ -87,9 +88,15 @@ public class LoadLevelMap {
                         characters.add(ch);
                         break;
                     case 'p' :
-                        ch = new Bomberman(j, i, Sprite.player_right.getFxImage());
+                        ch = new Bomberman(1, 1, Sprite.player_right.getFxImage());
                         entities.add(new Grass(j, i, Sprite.grass.getFxImage()));
                         characters.add(ch);
+                        break;
+                    case 'x':
+                        entities.add(new Hiden(j, i,
+                                new Grass(j, i, Sprite.grass.getFxImage()),
+                                new Portal(j, i, Sprite.portal.getFxImage()),
+                                new Brick(j, i, Sprite.brick.getFxImage())));
                         break;
                     default:
                         entities.add(new Grass(j, i, Sprite.grass.getFxImage()));
