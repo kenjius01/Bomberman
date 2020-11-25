@@ -48,7 +48,7 @@ public class Bomberman extends Character {
         else {
             timeBetweenPutBombs--;
         }*/
-        animate();
+        //animate();
 
         calculateMove();
 

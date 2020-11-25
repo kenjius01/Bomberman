@@ -72,6 +72,9 @@ public class BombermanGame extends Application {
         for (Entity entity : entities) {
             entity.update();
         }
+        for (Character character : characters) {
+            character.update();
+        }
     }
 
     public void render() {
