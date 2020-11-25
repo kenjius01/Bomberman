@@ -37,4 +37,5 @@ public abstract class Character extends Entity {
     public void render(GraphicsContext gc) {
         gc.drawImage(img, x, y);
     }
+
 }

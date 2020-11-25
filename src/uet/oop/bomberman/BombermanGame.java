@@ -28,7 +28,6 @@ public class BombermanGame extends Application {
     private List<Entity> entities = new ArrayList<>();
     private List<Character> characters = new ArrayList<>();
     private Bomberman bomberman;
-    private KeyBoard keyBoard;
 
 
 
@@ -66,13 +65,7 @@ public class BombermanGame extends Application {
         timer.start();
         LoadLevelMap loadLevelMap = new LoadLevelMap();
         loadLevelMap.loadMap(1);
-        loadLevelMap.createMap(entities, characters );
-
-
-
-
-
-
+        loadLevelMap.createMap(entities, characters);
     }
 
     public void update() {

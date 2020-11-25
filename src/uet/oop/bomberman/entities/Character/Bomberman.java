@@ -10,7 +10,7 @@ public class Bomberman extends Character {
     protected int timeBetweenPutBombs = 0;
     protected int animate = 0;
     protected boolean goUp, goRight, goLeft, goDown;
-    protected KeyBoard keyBoard;
+    public KeyBoard keyBoard;
 
 //----ham khoi tao
     public Bomberman(int xUnit, int yUnit, Image img) {
