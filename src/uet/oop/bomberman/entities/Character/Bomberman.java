@@ -11,8 +11,6 @@ public class Bomberman extends Character {
     protected int animate = 0;
     protected boolean goUp, goRight, goLeft, goDown;
     protected KeyBoard keyBoard;
-    protected int velocityX = 0;
-    protected int velocityY = 0;
 
 //----ham khoi tao
     public Bomberman(int xUnit, int yUnit, Image img) {
@@ -62,7 +60,7 @@ public class Bomberman extends Character {
         gc.drawImage(img, x, y);
     }
 
-//----ham di chuyen cua nhan vat
+//----ham kiem tra di chuyen
     @Override
     public boolean collide(Entity e) {
         return false;
@@ -83,17 +81,17 @@ public class Bomberman extends Character {
     protected boolean canMove(double x, double y) {
         return false;
     }
-
+//-----ham di chuyen nhan vat
     @Override
     protected void calculateMove() {
         if (keyBoard.up) {
-            velocityY = -3;
+            x = x - 3;
         } else if (keyBoard.down) {
-            velocityX = 3;
+            x = x + 3;
         } else if (keyBoard.left) {
-            velocityY = -3;
+            y = y + 3;
         } else if (keyBoard.right) {
-            velocityY = -3;
+            y = y - 3;
         }
     }
 
@@ -109,6 +107,5 @@ public class Bomberman extends Character {
             animate = 0;
         }
     }
-
 
 }

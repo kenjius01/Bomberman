@@ -58,7 +58,6 @@ public class BombermanGame extends Application {
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-
                 render();
                 update();
 
