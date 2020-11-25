@@ -9,6 +9,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import uet.oop.bomberman.Input.KeyBoard;
 import uet.oop.bomberman.entities.Character.Bomberman;
 import uet.oop.bomberman.Level.LoadLevelMap;
 import uet.oop.bomberman.entities.Character.Character;
@@ -27,6 +28,7 @@ public class BombermanGame extends Application {
     private List<Entity> entities = new ArrayList<>();
     private List<Character> characters = new ArrayList<>();
     private Bomberman bomberman;
+    private KeyBoard keyBoard;
 
 
 
