@@ -27,8 +27,7 @@ public class BombermanGame extends Application {
     private Canvas canvas;
     private List<Entity> entities = new ArrayList<>();
     private List<Character> characters = new ArrayList<>();
-    private Bomberman bomberman;
-
+    public Bomberman bomberman;
 
 
 
@@ -50,6 +49,16 @@ public class BombermanGame extends Application {
         // Tao scene
         Scene scene = new Scene(root);
 
+        bomberman = new Bomberman(1, 1, Sprite.player_right.getFxImage(),new KeyBoard());
+
+
+
+        LoadLevelMap loadLevelMap = new LoadLevelMap();
+        loadLevelMap.loadMap(1);
+        loadLevelMap.createMap(entities, characters, bomberman);
+
+        scene.setOnKeyPressed(bomberman.keyBoard);
+
         // Them scene vao stage
         stage.setScene(scene);
         stage.show();
@@ -63,9 +72,6 @@ public class BombermanGame extends Application {
             }
         };
         timer.start();
-        LoadLevelMap loadLevelMap = new LoadLevelMap();
-        loadLevelMap.loadMap(1);
-        loadLevelMap.createMap(entities, characters);
     }
 
     public void update() {

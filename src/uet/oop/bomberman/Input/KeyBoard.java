@@ -4,7 +4,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 
-public class KeyBoard implements EventHandler {
+public class KeyBoard implements EventHandler<KeyEvent> {
 
     public boolean up = false;
     public boolean down = false;
@@ -12,9 +12,8 @@ public class KeyBoard implements EventHandler {
     public boolean right = false;
 
     @Override
-    public void handle(Event event) {
-        KeyEvent keyEvent = (KeyEvent) event;
-        switch (keyEvent.getCode()) {
+    public void handle(KeyEvent event) {
+        switch (event.getCode()) {
             case UP:
                 up = true;
                 break;

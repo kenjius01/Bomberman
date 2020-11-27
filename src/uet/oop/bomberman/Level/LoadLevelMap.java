@@ -1,5 +1,6 @@
 package uet.oop.bomberman.Level;
 
+import uet.oop.bomberman.Input.KeyBoard;
 import uet.oop.bomberman.entities.Character.Bomberman;
 import uet.oop.bomberman.entities.Character.Character;
 import uet.oop.bomberman.entities.Character.Enemy.*;
@@ -53,7 +54,7 @@ public class LoadLevelMap {
         }
 
     }
-    public void createMap(List<Entity> entities, List<Character> characters) {
+    public void createMap(List<Entity> entities, List<Character> characters, Bomberman bomberman) {
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
                 Entity object;
@@ -73,7 +74,7 @@ public class LoadLevelMap {
                     // thêm brick
                     case '*':
                         entities.add(new Hiden(j, i, new Grass(j, i, Sprite.grass.getFxImage()),
-                                 new Brick(j, i, Sprite.brick.getFxImage())));
+                                new Brick(j, i, Sprite.brick.getFxImage())));
                         break;
                     // thêm balloom
                     case '1' :
@@ -88,9 +89,9 @@ public class LoadLevelMap {
                         characters.add(ch);
                         break;
                     case 'p' :
-                        ch = new Bomberman(1, 1, Sprite.player_right.getFxImage());
+                        //    bomberman = new Bomberman(1, 1, Sprite.player_right.getFxImage(),new KeyBoard());
                         entities.add(new Grass(j, i, Sprite.grass.getFxImage()));
-                        characters.add(ch);
+                        characters.add(bomberman);
                         break;
                     case 'x':
                         entities.add(new Hiden(j, i,

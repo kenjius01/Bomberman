@@ -12,9 +12,14 @@ public class Bomberman extends Character {
     protected boolean goUp, goRight, goLeft, goDown;
     public KeyBoard keyBoard;
 
-//----ham khoi tao
+    //----ham khoi tao
     public Bomberman(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
+    }
+
+    public Bomberman(int xUnit, int yUnit, Image img, KeyBoard keyBoard) {
+        super(xUnit, yUnit, img);
+        this.keyBoard = keyBoard;
     }
 
     @Override
@@ -37,7 +42,7 @@ public class Bomberman extends Character {
         super.setY(y);
     }
 
-//-----cap nhap di chuyen
+    //-----cap nhap di chuyen
     @Override
     public void update() {
         /*if (!alive) {
@@ -60,7 +65,7 @@ public class Bomberman extends Character {
         gc.drawImage(img, x, y);
     }
 
-//----ham kiem tra di chuyen
+    //----ham kiem tra di chuyen
     @Override
     public boolean collide(Entity e) {
         return false;
@@ -81,17 +86,17 @@ public class Bomberman extends Character {
     protected boolean canMove(double x, double y) {
         return false;
     }
-//-----ham di chuyen nhan vat
+    //-----ham di chuyen nhan vat
     @Override
     protected void calculateMove() {
         if (keyBoard.up) {
-            x = x - 3;
-        } else if (keyBoard.down) {
-            x = x + 3;
-        } else if (keyBoard.left) {
-            y = y + 3;
-        } else if (keyBoard.right) {
             y = y - 3;
+        } else if (keyBoard.down) {
+            y = y + 3;
+        } else if (keyBoard.left) {
+            x = x - 3;
+        } else if (keyBoard.right) {
+            x = x + 3;
         }
     }
 
