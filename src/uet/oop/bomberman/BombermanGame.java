@@ -58,6 +58,7 @@ public class BombermanGame extends Application {
         loadLevelMap.createMap(entities, characters, bomberman);
 
         scene.setOnKeyPressed(bomberman.keyBoard);
+        scene.setOnKeyReleased(bomberman.keyBoard);
 
         // Them scene vao stage
         stage.setScene(scene);

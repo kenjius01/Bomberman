@@ -6,13 +6,18 @@ import javafx.scene.input.KeyEvent;
 
 public class KeyBoard implements EventHandler<KeyEvent> {
 
-    public boolean up = false;
-    public boolean down = false;
-    public boolean left = false;
-    public boolean right = false;
+    public boolean up;
+    public boolean down;
+    public boolean left;
+    public boolean right;
 
     @Override
     public void handle(KeyEvent event) {
+        up = false;
+        down = false;
+        left = false;
+        right = false;
+
         switch (event.getCode()) {
             case UP:
                 up = true;

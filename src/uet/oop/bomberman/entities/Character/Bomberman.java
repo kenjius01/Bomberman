@@ -90,13 +90,13 @@ public class Bomberman extends Character {
     @Override
     protected void calculateMove() {
         if (keyBoard.up) {
-            y = y - 3;
+            y = y - 1;
         } else if (keyBoard.down) {
-            y = y + 3;
+            y = y + 1;
         } else if (keyBoard.left) {
-            x = x - 3;
+            x = x - 1;
         } else if (keyBoard.right) {
-            x = x + 3;
+            x = x + 1;
         }
     }
 
