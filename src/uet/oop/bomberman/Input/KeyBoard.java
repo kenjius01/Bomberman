@@ -13,11 +13,7 @@ public class KeyBoard implements EventHandler<KeyEvent> {
 
     @Override
     public void handle(KeyEvent event) {
-        up = false;
-        down = false;
-        left = false;
-        right = false;
-
+        up = false; down = false; right = false; left = false;
         switch (event.getCode()) {
             case UP:
                 up = true;

@@ -2,12 +2,10 @@ package uet.oop.bomberman;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import uet.oop.bomberman.Input.KeyBoard;
 import uet.oop.bomberman.entities.Character.Bomberman;
@@ -21,13 +19,13 @@ import java.util.List;
 
 public class BombermanGame extends Application {
 
-    public static final int WIDTH = 20;
-    public static final int HEIGHT = 15;
+    public static final int WIDTH = 31;
+    public static final int HEIGHT = 13;
     private GraphicsContext gc;
     private Canvas canvas;
     private List<Entity> entities = new ArrayList<>();
     private List<Character> characters = new ArrayList<>();
-    public Bomberman bomberman;
+    public static Bomberman bomberman;
 
 
 
@@ -49,20 +47,20 @@ public class BombermanGame extends Application {
         // Tao scene
         Scene scene = new Scene(root);
 
-        bomberman = new Bomberman(1, 1, Sprite.player_right.getFxImage(),new KeyBoard());
-
-
+        bomberman = new Bomberman(1, 1, Sprite.player_right.getFxImage(), new KeyBoard());
+        characters.add(bomberman);
 
         LoadLevelMap loadLevelMap = new LoadLevelMap();
         loadLevelMap.loadMap(1);
-        loadLevelMap.createMap(entities, characters, bomberman);
+        loadLevelMap.createMap(entities, characters);
 
-        scene.setOnKeyPressed(bomberman.keyBoard);
-        scene.setOnKeyReleased(bomberman.keyBoard);
 
         // Them scene vao stage
         stage.setScene(scene);
         stage.show();
+
+        scene.setOnKeyPressed(bomberman.keyBoard);
+        scene.setOnKeyReleased(bomberman.keyBoard);
 
         AnimationTimer timer = new AnimationTimer() {
             @Override

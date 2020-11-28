@@ -9,7 +9,6 @@ import uet.oop.bomberman.graphics.Sprite;
 public class Bomberman extends Character {
     protected int timeBetweenPutBombs = 0;
     protected int animate = 0;
-    protected boolean goUp, goRight, goLeft, goDown;
     public KeyBoard keyBoard;
 
     //----ham khoi tao
@@ -20,6 +19,7 @@ public class Bomberman extends Character {
     public Bomberman(int xUnit, int yUnit, Image img, KeyBoard keyBoard) {
         super(xUnit, yUnit, img);
         this.keyBoard = keyBoard;
+
     }
 
     @Override
@@ -53,7 +53,7 @@ public class Bomberman extends Character {
         else {
             timeBetweenPutBombs--;
         }*/
-        //animate();
+        animate();
 
         calculateMove();
 
@@ -86,17 +86,26 @@ public class Bomberman extends Character {
     protected boolean canMove(double x, double y) {
         return false;
     }
+
     //-----ham di chuyen nhan vat
     @Override
     protected void calculateMove() {
         if (keyBoard.up) {
-            y = y - 1;
+            this.setY(-1);
+            setImg(Sprite.movingSprite(Sprite.player_up_1,
+                    Sprite.player_up_2, animate, 20).getFxImage());
         } else if (keyBoard.down) {
-            y = y + 1;
+            this.setY(1);
+            setImg(Sprite.movingSprite(Sprite.player_down_1,
+                    Sprite.player_down_2, animate, 20).getFxImage());
         } else if (keyBoard.left) {
-            x = x - 1;
+            this.setX(-1);
+            setImg(Sprite.movingSprite(Sprite.player_left_1,
+                    Sprite.player_left_2, animate, 20).getFxImage());
         } else if (keyBoard.right) {
-            x = x + 1;
+            this.setX(1);
+            setImg(Sprite.movingSprite(Sprite.player_right_1,
+                    Sprite.player_right_2, animate, 20).getFxImage());
         }
     }
 
@@ -112,5 +121,5 @@ public class Bomberman extends Character {
             animate = 0;
         }
     }
-
 }
+
