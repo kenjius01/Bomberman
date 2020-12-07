@@ -84,34 +84,71 @@ public class Bomberman extends Character {
 
     @Override
     protected boolean canMove(double x, double y) {
-        return false;
+        if (x < 30) {
+            return false;
+        }
+        return true;
     }
 
     //-----ham di chuyen nhan vat
     @Override
     protected void calculateMove() {
         if (keyBoard.up) {
-            this.setY(-1);
-            setImg(Sprite.movingSprite(Sprite.player_up_1,
-                    Sprite.player_up_2, animate, 20).getFxImage());
+            move(0,-1);
+            direction = 1;
+            //this.setY(-1);
+            //setImg(Sprite.movingSprite(Sprite.player_up_1,
+            //        Sprite.player_up_2, animate, 20).getFxImage());
         } else if (keyBoard.down) {
-            this.setY(1);
-            setImg(Sprite.movingSprite(Sprite.player_down_1,
-                    Sprite.player_down_2, animate, 20).getFxImage());
+            move(0,1);
+            direction = 2;
+            //this.setY(1);
+            //setImg(Sprite.movingSprite(Sprite.player_down_1,
+            //        Sprite.player_down_2, animate, 20).getFxImage());
         } else if (keyBoard.left) {
-            this.setX(-1);
-            setImg(Sprite.movingSprite(Sprite.player_left_1,
-                    Sprite.player_left_2, animate, 20).getFxImage());
+            move(-1,0);
+            direction = 3;
+            //this.setX(-1);
+            //setImg(Sprite.movingSprite(Sprite.player_left_1,
+            //        Sprite.player_left_2, animate, 20).getFxImage());
         } else if (keyBoard.right) {
-            this.setX(1);
-            setImg(Sprite.movingSprite(Sprite.player_right_1,
-                    Sprite.player_right_2, animate, 20).getFxImage());
+            move(1,0);
+            direction = 4;
+            //this.setX(1);
+            //setImg(Sprite.movingSprite(Sprite.player_right_1,
+            //        Sprite.player_right_2, animate, 20).getFxImage());
         }
     }
 
     @Override
     protected void move(double xa, double ya) {
+        if (canMove(x + xa, y + ya)) {
+            switch (direction) {
+                case 1:
+                    this.setY(-1);
+                    setImg(Sprite.movingSprite(Sprite.player_up_1,
+                            Sprite.player_up_2, animate, 20).getFxImage());
+                    break;
+                case 2:
+                    this.setY(1);
+                    setImg(Sprite.movingSprite(Sprite.player_down_1,
+                            Sprite.player_down_2, animate, 20).getFxImage());
+                    break;
+                case 3:
+                    this.setX(-1);
+                    setImg(Sprite.movingSprite(Sprite.player_left_1,
+                            Sprite.player_left_2, animate, 20).getFxImage());
+                    break;
+                case 4:
+                    this.setX(1);
+                    setImg(Sprite.movingSprite(Sprite.player_right_1,
+                            Sprite.player_right_2, animate, 20).getFxImage());
+                    break;
+                default:
 
+                    break;
+            }
+        }
     }
 
     public void animate() {
