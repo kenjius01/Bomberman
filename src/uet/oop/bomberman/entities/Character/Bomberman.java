@@ -2,25 +2,25 @@ package uet.oop.bomberman.entities.Character;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import uet.oop.bomberman.Input.KeyBoard;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.vacham;
+
+import java.util.Iterator;
+
+import static uet.oop.bomberman.BombermanGame.entities;
 
 public class Bomberman extends Character {
     protected int timeBetweenPutBombs = 0;
     protected int animate = 0;
-    public KeyBoard keyBoard;
+    protected boolean up, down, left, right;
+    vacham vc = new vacham();
 
     //----ham khoi tao
     public Bomberman(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
     }
 
-    public Bomberman(int xUnit, int yUnit, Image img, KeyBoard keyBoard) {
-        super(xUnit, yUnit, img);
-        this.keyBoard = keyBoard;
-
-    }
 
     @Override
     public void setX(int x) {
@@ -83,72 +83,154 @@ public class Bomberman extends Character {
     }
 
     @Override
-    protected boolean canMove(double x, double y) {
-        if (x < 30) {
-            return false;
-        }
+    protected boolean canMove(int x, int y) {
+//        int dx, dy;
+//        if (x == 0 && y < 0) {
+//            //trên trai
+//            dx = x + getX();
+//            dy = y + getY();
+//            Entity a = getEntity(dx, dy);
+//            if (!a.collide(this)) {
+//                return false;
+//            }
+//            //trên phai
+//            dx = getX() + x + 22;
+//            dy = getY() + y;
+//            Entity a2 = getEntity(dx, dy);
+//            if (!a2.collide(this)) {
+//                return false;
+//            }
+//            //goc duoi trai
+//            dx = x + getX();
+//            dy = y + getY() + 31;
+//            Entity a3 = getEntity(dx, dy);
+//            if (!a3.collide(this)) {
+//                return false;
+//            }
+//            //goc duoi phai
+//            dx = x + getX() + 22;
+//            dy = y + getY() + 31;
+//            Entity a4 = getEntity(dx, dy);
+//            if (!a4.collide(this)) {
+//                return false;
+//            }
+//
+//        } else if (x == 0 && y > 0) {
+//            //trên trai
+//            dx = x + getX();
+//            dy = y + getY();
+//            Entity a = getEntity(dx, dy);
+//            if (!a.collide(this)) {
+//                return false;
+//            }
+//            //trên phai
+//            dx = getX() + x + 22;
+//            dy = getY() + y;
+//            Entity a2 = getEntity(dx, dy);
+//            if (!a2.collide(this)) {
+//                return false;
+//            }
+//            //goc duoi trai
+//            dx = x + getX();
+//            dy = y + getY() + 31;
+//            Entity a3 = getEntity(dx, dy);
+//            if (!a3.collide(this)) {
+//                return false;
+//            }
+//            //goc duoi phai
+//            dx = x + getX() + 22;
+//            dy = y + getY() + 31;
+//            Entity a4 = getEntity(dx, dy);
+//            if (!a4.collide(this)) {
+//                return false;
+//            }
+//        } else if (x < 0 && y == 0) {
+//            //trên trai
+//            dx = x + getX();
+//            dy = y + getY() + 2;
+//            Entity a = getEntity(dx, dy);
+//            if (!a.collide(this)) {
+//                return false;
+//            }
+//            //trên phai
+//            dx = getX() + x + 20;
+//            dy = getY() + y + 2;
+//            Entity a2 = getEntity(dx, dy);
+//            if (!a2.collide(this)) {
+//                return false;
+//            }
+//            //goc duoi trai
+//            dx = x + getX();
+//            dy = y + getY() + 31;
+//            Entity a3 = getEntity(dx, dy);
+//            if (!a3.collide(this)) {
+//                return false;
+//            }
+//            //goc duoi phai
+//            dx = x + getX() ;
+//            dy = y + getY() ;
+//            Entity a4 = getEntity(dx, dy);
+//            if (!a4.collide(this)) {
+//                return false;
+//            }
+//        } else if (x > 0 && y ==0) {
+//            //trên trai
+//            dx = x + getX();
+//            dy = y + getY();
+//            Entity a = getEntity(dx, dy);
+//            if (!a.collide(this)) {
+//                return false;
+//            }
+//            //trên phai
+//            dx = getX() + x ;
+//            dy = getY() + y ;
+//            Entity a2 = getEntity(dx, dy);
+//            if (!a2.collide(this)) {
+//                return false;
+//            }
+//            //goc duoi trai
+//            dx = x + getX() ;
+//            dy = y + getY() ;
+//            Entity a3 = getEntity(dx, dy);
+//            if (!a3.collide(this)) {
+//                return false;
+//            }
+//            //goc duoi phai
+//            dx = x + getX() ;
+//            dy = y + getY() ;
+//            Entity a4 = getEntity(dx, dy);
+//            if (!a4.collide(this)) {
+//                return false;
+//            }
+//        }
         return true;
     }
 
     //-----ham di chuyen nhan vat
     @Override
     protected void calculateMove() {
-        if (keyBoard.up) {
-            move(0,-1);
-            direction = 1;
-            //this.setY(-1);
-            //setImg(Sprite.movingSprite(Sprite.player_up_1,
-            //        Sprite.player_up_2, animate, 20).getFxImage());
-        } else if (keyBoard.down) {
-            move(0,1);
-            direction = 2;
-            //this.setY(1);
-            //setImg(Sprite.movingSprite(Sprite.player_down_1,
-            //        Sprite.player_down_2, animate, 20).getFxImage());
-        } else if (keyBoard.left) {
-            move(-1,0);
-            direction = 3;
-            //this.setX(-1);
-            //setImg(Sprite.movingSprite(Sprite.player_left_1,
-            //        Sprite.player_left_2, animate, 20).getFxImage());
-        } else if (keyBoard.right) {
-            move(1,0);
-            direction = 4;
-            //this.setX(1);
-            //setImg(Sprite.movingSprite(Sprite.player_right_1,
-            //        Sprite.player_right_2, animate, 20).getFxImage());
+        if (this.isUp()) {
+            if (canMove(0, 1)) this.setY(1);
+            setImg(Sprite.movingSprite(Sprite.player_up_1,
+                    Sprite.player_up_2, animate, 20).getFxImage());
+        } else if (this.isDown()) {
+            if (canMove(0,1)) this.setY(1);
+            setImg(Sprite.movingSprite(Sprite.player_down_1,
+                    Sprite.player_down_2, animate, 20).getFxImage());
+        } else if (this.isLeft()) {
+            if (canMove(1,0)) this.setX(1);
+            setImg(Sprite.movingSprite(Sprite.player_left_1,
+                    Sprite.player_left_2, animate, 20).getFxImage());
+        } else if (this.isRight()) {
+            if (canMove(1,0)) this.setX(1);
+            setImg(Sprite.movingSprite(Sprite.player_right_1,
+                    Sprite.player_right_2, animate, 20).getFxImage());
         }
     }
 
     @Override
     protected void move(double xa, double ya) {
-        if (canMove(x + xa, y + ya)) {
-            switch (direction) {
-                case 1:
-                    this.setY(-1);
-                    setImg(Sprite.movingSprite(Sprite.player_up_1,
-                            Sprite.player_up_2, animate, 20).getFxImage());
-                    break;
-                case 2:
-                    this.setY(1);
-                    setImg(Sprite.movingSprite(Sprite.player_down_1,
-                            Sprite.player_down_2, animate, 20).getFxImage());
-                    break;
-                case 3:
-                    this.setX(-1);
-                    setImg(Sprite.movingSprite(Sprite.player_left_1,
-                            Sprite.player_left_2, animate, 20).getFxImage());
-                    break;
-                case 4:
-                    this.setX(1);
-                    setImg(Sprite.movingSprite(Sprite.player_right_1,
-                            Sprite.player_right_2, animate, 20).getFxImage());
-                    break;
-                default:
 
-                    break;
-            }
-        }
     }
 
     public void animate() {
@@ -157,6 +239,49 @@ public class Bomberman extends Character {
         } else {
             animate = 0;
         }
+    }
+
+    public void setRight(boolean right) {
+        this.right = right;
+    }
+
+    public boolean isLeft() {
+        return left;
+    }
+
+    public boolean isUp() {
+        return up;
+    }
+
+    public void setUp(boolean up) {
+        this.up = up;
+    }
+
+    public boolean isDown() {
+        return down;
+    }
+
+    public void setDown(boolean down) {
+        this.down = down;
+    }
+
+    public void setLeft(boolean left) {
+        this.left = left;
+    }
+
+    public boolean isRight() {
+        return right;
+    }
+
+    public Entity getEntity(int x, int y) {
+        Iterator<Entity> e = entities.iterator();
+        Entity m;
+        while (e.hasNext()) {
+            m = e.next();
+            if (m.getX() == x && m.getY() == y) {
+                return m;
+            }
+        } return null;
     }
 }
 

@@ -2,12 +2,13 @@ package uet.oop.bomberman;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import uet.oop.bomberman.Input.KeyBoard;
 import uet.oop.bomberman.entities.Character.Bomberman;
 import uet.oop.bomberman.Level.LoadLevelMap;
 import uet.oop.bomberman.entities.Character.Character;
@@ -23,8 +24,8 @@ public class BombermanGame extends Application {
     public static final int HEIGHT = 13;
     private GraphicsContext gc;
     private Canvas canvas;
-    private List<Entity> entities = new ArrayList<>();
-    private List<Character> characters = new ArrayList<>();
+    public static List<Entity> entities = new ArrayList<>();
+    public static List<Character> characters = new ArrayList<>();
     public static Bomberman bomberman;
 
 
@@ -47,20 +48,62 @@ public class BombermanGame extends Application {
         // Tao scene
         Scene scene = new Scene(root);
 
-        bomberman = new Bomberman(1, 1, Sprite.player_right.getFxImage(), new KeyBoard());
+        bomberman = new Bomberman(1, 1, Sprite.player_right.getFxImage());
         characters.add(bomberman);
 
         LoadLevelMap loadLevelMap = new LoadLevelMap();
         loadLevelMap.loadMap(1);
-        loadLevelMap.createMap(entities, characters);
+        loadLevelMap.createMap();
 
 
         // Them scene vao stage
         stage.setScene(scene);
         stage.show();
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                switch (event.getCode()) {
+                    case UP:
+                        bomberman.setUp(true);
+                        break;
+                    case DOWN:
+                        bomberman.setDown(true);
+                        break;
+                    case LEFT:
+                        bomberman.setLeft(true);
+                        break;
+                    case RIGHT:
+                        bomberman.setRight(true);
+                        break;
+                    case SPACE:
+                        break;
+                }
+            }
+        });
 
-        scene.setOnKeyPressed(bomberman.keyBoard);
-        scene.setOnKeyReleased(bomberman.keyBoard);
+        scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                switch (event.getCode()) {
+                    case UP:
+                        bomberman.setUp(false);
+                        bomberman.setImg(Sprite.player_up.getFxImage());
+                        break;
+                    case DOWN:
+                        bomberman.setDown(false);
+                        bomberman.setImg(Sprite.player_down.getFxImage());
+                        break;
+                    case LEFT:
+                        bomberman.setLeft(false);
+                        bomberman.setImg(Sprite.player_left.getFxImage());
+                        break;
+                    case RIGHT:
+                        bomberman.setRight(false);
+                        bomberman.setImg(Sprite.player_right.getFxImage());
+                        break;
+                }
+            }
+        });
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
@@ -92,4 +135,5 @@ public class BombermanGame extends Application {
             g.render(gc);
         }
     }
+
 }

@@ -27,7 +27,7 @@ public abstract class Character extends Entity {
 
     public abstract void afterKill();
 
-    protected abstract boolean canMove(double x, double y);
+    protected abstract boolean canMove(int x, int y);
 
     protected abstract void calculateMove();
 

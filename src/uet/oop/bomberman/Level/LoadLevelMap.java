@@ -14,6 +14,9 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import static uet.oop.bomberman.BombermanGame.entities;
+import static uet.oop.bomberman.BombermanGame.characters;
+
 public class LoadLevelMap {
     private char[][] map;
     private int lv;
@@ -52,7 +55,7 @@ public class LoadLevelMap {
         }
 
     }
-    public void createMap(List<Entity> entities, List<Character> characters) {
+    public void createMap() {
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
                 Entity object;
