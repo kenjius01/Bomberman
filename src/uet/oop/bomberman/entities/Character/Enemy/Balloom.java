@@ -32,7 +32,7 @@ public class Balloom extends Character {
     }
 
     @Override
-    protected boolean canMove(double x, double y) {
+    protected boolean canMove(int x, int y) {
         return false;
     }
 
